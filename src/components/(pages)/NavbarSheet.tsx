@@ -11,19 +11,19 @@ export default function NavbarSheet() {
       
       <div className="hidden md:flex max-w-[508px]">
         <ul className="flex gap-2 sm:gap-4">
-          <li className="text-[24px] sm:text-[16px]">
+          <li className="text-[24px] sm:text-[16px] hover:text-[#029FAE]">
             <Link href="/">Home</Link>
           </li>
-          <li className="text-[24px] sm:text-[16px]">
+          <li className="text-[24px] sm:text-[16px] hover:text-[#029FAE]">
             <Link href="/products">Products</Link>
           </li>
-          <li className="font-normal text-[24px] sm:text-[16px]">
+          <li className="font-normal text-[24px] sm:text-[16px] hover:text-[#029FAE]">
             <Link href="/about">About</Link>
           </li>
-          <li className="font-normal text-[24px] sm:text-[16px]">
-            <Link href="/faq">Faq</Link>
+          <li className="font-normal text-[24px] sm:text-[16px] hover:text-[#029FAE]">
+            <Link href="/cart">Cart</Link>
           </li>
-          <li className="font-normal text-[24px] sm:text-[16px]">
+          <li className="font-normal text-[24px] sm:text-[16px] hover:text-[#029FAE]">
             <Link href="/contact">Contact</Link>
           </li>
         </ul>
@@ -38,19 +38,19 @@ export default function NavbarSheet() {
           </SheetTrigger>
           <SheetContent>
             <ul className="flex flex-col text-[#ffffff] md:flex-row gap-4 p-4">
-            <li className="text-[24px] sm:text-[16px]">
+            <li className="text-[24px] sm:text-[16px] hover:text-[#029FAE]">
             <Link href="/">Home</Link>
           </li>
-          <li className="text-[24px] sm:text-[16px]">
+          <li className="text-[24px] sm:text-[16px] hover:text-[#029FAE]">
             <Link href="/products">Products</Link>
           </li>
-          <li className="font-normal text-[24px] sm:text-[16px]">
+          <li className="font-normal text-[24px] sm:text-[16px] hover:text-[#029FAE]">
             <Link href="/about">About</Link>
           </li>
-          <li className="font-normal text-[24px] sm:text-[16px]">
-            <Link href="/faq">Faq</Link>
+          <li className="font-normal text-[24px] sm:text-[16px] hover:text-[#029FAE]">
+            <Link href="/cart">Cart</Link>
           </li>
-          <li className="font-normal text-[24px] sm:text-[16px]">
+          <li className="font-normal text-[24px] sm:text-[16px] hover:text-[#029FAE]">
             <Link href="/contact">Contact</Link>
           </li>
             </ul>

@@ -1,85 +1,94 @@
-import React from 'react';
-import { FaAddressBook } from "react-icons/fa";
-
-import { FaPhoneAlt } from "react-icons/fa";
-
-import { FaClock } from "react-icons/fa";
+import React from "react";
+import { FaAddressBook, FaPhoneAlt, FaClock } from "react-icons/fa";
 
 export default function Contact() {
   return (
-    //main div
-    <div className='bg-[#FFFFFF] min-h-screen'>
-        {/*Heading and paragraph div */}
-        <div className='bg-[#FFFFFF] pt-12'>
-            <h1 className='text-[#000000] font-semibold text-center'>Get in Touch With Us</h1>
-            <p className='text-[#9F9F9F] font-light text-center'>For More Information About Our Product & Services. Please Feel Free To Drop Us</p>
-            <p className='text-[#9F9F9F] font-light text-center'>An Email. Our Staff Always Be There To Help You Out. Do Not Hesitate!</p>
-        </div>
-        {/*form div */}
-        <div className='flex justify-evenly mt-10'>
-            <div>
-        {/*address */}
-        
-            <div>
-            <FaAddressBook size={24}/>
-                <h1 className='text-[#000000] font-semibold pl-7'>Address</h1>
-                <p className='text-[#000000] font-light'>236 5th SE Avenue,</p>
-                <p className='text-[#000000] font-light'> New York NY10000,</p>
-                <p className='text-[#000000] font-light'> United States</p>
-            </div>
-            <div>
-            <FaPhoneAlt size={24}/>
-                <h1 className='text-[#000000] font-semibold pl-7'>Phone</h1>
-                <p className='text-[#000000] font-light'>Mobile: +(84) 546-6789</p>
-                <p className='text-[#000000] font-light'>Hotline: +(84) 456-6789</p>
-            </div>
-            <div>
-            <FaClock size={24}/>
+    <div className="flex flex-col items-center p-4 md:p-8 max-w-screen-2xl m-auto">
+      <h1 className="text-center font-bold text-3xl md:text-4xl mt-10 mb-4">
+        GET In Touch with Us
+      </h1>
+      <p className="text-center mb-8 text-gray-600">
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Ab cupiditate
+        volupta
+        <br />
+        rem debitis autem libero quisquam.
+      </p>
 
-                <h1 className='text-[#000000] font-semibold pl-7'>Working Time</h1>
-                <p className='text-[#000000] font-light'>Monday-Friday: 9:00 - 22:00</p>
-                <p className='text-[#000000] font-light'>Saturday-Sunday: 9:00 - 21:00</p>
+      <div className="w-full md:w-3/4 lg:w-2/3 flex flex-col md:flex-row p-6 rounded-lg">
+        <div className="w-full md:w-1/2 mb-4 md:mb-0 md:pr-4">
+          <h2 className="text-xl font-semibold mb-4">Contact Information</h2>
+          <div className="space-y-6">
+            <div className="flex items-start">
+              <FaAddressBook className="text-[#007580] mr-3 mt-1" size={20} />
+              <div>
+                <strong>Address:</strong>
+                <p>123 Main Street, City, Country</p>
+              </div>
             </div>
+            <div className="flex items-start">
+              <FaPhoneAlt className="text-green-500 mr-3 mt-1" size={20} />
+              <div>
+                <strong>Phone Number:</strong>
+                <p>+1 (234) 567-8901</p>
+                <p>+1 (234) 567-8901</p>
+              </div>
             </div>
-                {/*form */}
-                <form>
-                    <label>Name:</label>
-                <input
-            type="text"
-            id="name"
-            name="name"
-            required
-            placeholder="Your name"
-            className="mt-1 block p-2 border border-gray-300 rounded-md shadow-sm w-48"
-          />
-          <label>Email:</label>
-                <input
-            type="text"
-            id="name"
-            name="name"
-            required
-            placeholder="abc@gmail.com"
-            className="mt-1 block p-2 border border-gray-300 rounded-md shadow-sm w-48"
-          />
-          <label>Subject:</label>
-                <input
-            type="text"
-            id="name"
-            name="name"
-            placeholder="This field is optional"
-            className="mt-1 block p-2 border border-gray-300 rounded-md shadow-sm w-48"
-          />
-          <label>Message:</label>
-                <input
-            type="text"
-            id="name"
-            name="name"
-            required
-            placeholder="Hi! I'd like to ask about"
-            className="mt-1 block p-2 border border-gray-300 rounded-md shadow-sm w-48"
-          />
-                </form>
+            <div className="flex items-start">
+              <FaClock className="text-yellow-500 mr-3 mt-1" size={20} />
+              <div>
+                <strong>Working Time:</strong>
+                <p>Mon-Fri, 9:00 AM - 5:00 PM</p>
+              </div>
             </div>
+          </div>
         </div>
-  )
+
+        <div className="w-full md:w-1/2">
+          <h2 className="text-xl font-semibold mb-4">Send Us a Message</h2>
+          <form className="flex flex-col space-y-4">
+            <div>
+              <label className="block mb-2 font-bold">Name:</label>
+              <input
+                type="text"
+                placeholder="Enter Your Name"
+                className="w-full p-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-[#007580]"
+              />
+            </div>
+            <div>
+              <label className="block mb-2 font-bold">Email:</label>
+              <input
+                type="email"
+                placeholder="Enter Your Email"
+                className="w-full p-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-[#007580]"
+              />
+            </div>
+            <div>
+              <label className="block mb-2 font-bold">
+                Subject (Optional):
+              </label>
+              <input
+                type="text"
+                placeholder="Enter the Subject"
+                className="w-full p-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-[#007580]"
+              />
+            </div>
+            <div>
+              <label className="block mb-2 font-bold">Message:</label>
+              <textarea
+                placeholder="Your Message"
+                className="w-full p-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-[#007580]"
+                rows={4}
+              />
+            </div>
+            <button
+              type="submit"
+              className="bg-[#007580] px-8 py-2 mt-6 text-xl text-white rounded-md hover:text-[#007580] hover:bg-white focus:outline-none focus:ring-2 focus:ring-[#007580] hover:border hover:border-[#007580]"
+            >
+              Submit
+            </button>
+          </form>
+        </div>
+      </div>
+    </div>
+  );
 }

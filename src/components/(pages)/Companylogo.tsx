@@ -18,7 +18,6 @@ export default function Companylogo() {
   return (
     <div className="lg:mx-[200px] mx-4">
       <div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-5 mt-[60px] xl:mx-0 lg:mx-4 md:mx-9 sm:mx-9">
-
         {logos.map((logo, index) => (
           <div
             key={index}

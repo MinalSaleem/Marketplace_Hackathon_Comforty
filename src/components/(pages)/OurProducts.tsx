@@ -3,45 +3,39 @@ import Image from "next/image";
 import Link from "next/link";
 import { Button } from "../ui/button";
 import { BsCartDash } from "react-icons/bs";
+import { Product } from "@/components/(pages)/type";
+import { client } from "@/sanity/lib/client";
 
-export interface Product {
-  title: string;
-  price: number;
-  image: string;
-}
+export default async function OurProducts() {
+  const products: Product[] = await client.fetch(`*[_type == "products"]{
+        _id,
+        title,
+        price,
+        "imageUrl":image.asset->url,
+      }[0..7]`);
 
-const products: Product[] = [
-    { title: "Chair", price: 23, image: "/products/1.png" },
-    { title: "Chair", price: 23, image: "/products/2.png" },
-    { title: "Chair", price: 23, image: "/products/3.png" },
-    { title: "Chair", price: 23, image: "/products/4.png" },
-    { title: "Chair", price:23, image: "/products/5.png" },
-    { title: "Chair", price:23, image: "/products/6.png" },
-    { title: "Chair", price:23, image: "/products/7.png" },
-    { title: "Chair", price:23, image: "/products/8.png" },
-];
+  console.log(products);
 
-export default function OurProducts() {
   return (
-    <div >
+    <div>
       <div className="flex flex-row justify-center lg:py-14 lg:mx-[120px] mx-4">
         <p className="font-bold text-[32px] ">Our Products</p>
       </div>
 
-      <div className="mb-32 grid grid-cols-1 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-9 mx-9 xl:gap-10">
+      <div className="mb-32 grid grid-cols-1 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-9 mx-4 xl:gap-10">
         {products.map((product, index) => (
           <div
             key={index}
-            className="bg-white w-[312px] h-[377px] overflow-hidden xl:px-7"
+            className="bg-white w-[280px] sm:w-[312px] h-[377px] overflow-hidden hover:scale-105 hover:z-10 transition-transform duration-150"
           >
             <Image
-              src={product.image}
+              src={product.imageUrl}
               alt={product.title}
               width={300}
               height={300}
               className="w-full h-[312px] object-cover"
             />
-            <div className="p-0 flex flex-row justify-between mt-3">
+            <div className="p-0 flex flex-row justify-between mt-3 xl:px-7 ">
               <span>
                 <h3 className="text-lg hover:text-[#029FAE] text-black font-normal">
                   {product.title}
@@ -49,8 +43,13 @@ export default function OurProducts() {
                 <p className="text-black text-xl font-bold">${product.price}</p>
               </span>
               <span className="text-gray-500">
-                <Link href={"/products"}>
-                <Button variant="outline" className="hover:bg-[#029FAE] text-black hover:text-white border border-slate-300 bg-slate-300 hover:border rounded-xl"><BsCartDash size={22} /></Button>
+                <Link href={`/products/${product._id}`}>
+                  <Button
+                    variant="outline"
+                    className="hover:bg-[#029FAE] text-black hover:text-white border border-slate-300 bg-slate-300 hover:border rounded-xl"
+                  >
+                    <BsCartDash size={22} />
+                  </Button>
                 </Link>
               </span>
             </div>

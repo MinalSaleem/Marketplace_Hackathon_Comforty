@@ -1,9 +1,10 @@
 "use client";
 
 import Image from "next/image";
-import { AiOutlineHeart } from "react-icons/ai"; 
-import { FiTrash } from "react-icons/fi"; 
+import { AiOutlineHeart } from "react-icons/ai";
+import { FiTrash } from "react-icons/fi";
 import { useCart } from "@/components/(pages)/CardContext";
+import { Button } from "@/components/ui/button";
 
 // Define CartItem type
 interface CartItem {
@@ -32,7 +33,7 @@ export default function CartPage() {
             <p className="text-lg">Your cart is empty.</p>
           ) : (
             <div className="flex flex-col gap-6">
-              {state.items.map((item:CartItem, i:number) => (
+              {state.items.map((item: CartItem, i: number) => (
                 <div
                   key={i}
                   className="flex flex-col md:flex-row items-center md:justify-between p-4 bg-white shadow rounded-lg"
@@ -60,7 +61,7 @@ export default function CartPage() {
                       <div className="flex gap-4 mt-4 text-gray-800">
                         <AiOutlineHeart className="text-2xl cursor-pointer hover:text-red-500" />
                         <FiTrash
-                          className="text-2xl cursor-pointer hover:text-gray-500"
+                          className="text-2xl cursor-pointer hover:text-[#029FAE]"
                           onClick={() =>
                             dispatch({
                               type: "REMOVE_FROM_CART",
@@ -89,7 +90,10 @@ export default function CartPage() {
               <span>
                 $
                 {state.items
-                  .reduce((total, item) => total + item.price * item.quantity, 0)
+                  .reduce(
+                    (total, item) => total + item.price * item.quantity,
+                    0
+                  )
                   .toFixed(2)}
               </span>
             </div>
@@ -102,14 +106,21 @@ export default function CartPage() {
               <span>
                 $
                 {state.items
-                  .reduce((total, item) => total + item.price * item.quantity, 0)
+                  .reduce(
+                    (total, item) => total + item.price * item.quantity,
+                    0
+                  )
                   .toFixed(2)}
               </span>
             </div>
           </div>
-          <button className="w-full text-lg md:text-base font-semibold text-white bg-cyan-500 rounded-full py-3 mt-6 hover:bg-cyan-600 transition">
+
+          <Button
+            variant="outline"
+            className="w-full text-lg md:text-base  rounded-full py-3 mt-6  font-semibold text-white bg-[#029FAE] hover:bg-white  hover:text-[#029FAE] border border-[#029FAE] hover:border "
+          >
             Proceed to Checkout
-          </button>
+          </Button>
         </div>
       </div>
     </div>

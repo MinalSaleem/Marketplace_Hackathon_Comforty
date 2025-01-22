@@ -2,7 +2,6 @@
 
 import { createContext, useContext, useReducer, ReactNode } from "react";
 
-// Define a Cart Item
 interface CartItem {
   _id: string;
   title: string;
@@ -11,7 +10,6 @@ interface CartItem {
   quantity: number;
 }
 
-// Define the Cart State and Actions
 interface CartState {
   items: CartItem[];
 }
@@ -23,20 +21,20 @@ type CartAction =
   | { type: "DECREMENT_QUANTITY"; payload: { _id: string } }
   | { type: "CLEAR_CART" };
 
-// Initial State
 const initialState: CartState = {
   items: [],
 };
 
-// Reducer Function
 function cartReducer(state: CartState, action: CartAction): CartState {
   switch (action.type) {
     case "ADD_TO_CART":
-      const existingItem = state.items.find(item => item._id === action.payload._id);
+      const existingItem = state.items.find(
+        (item) => item._id === action.payload._id
+      );
       if (existingItem) {
         return {
           ...state,
-          items: state.items.map(item =>
+          items: state.items.map((item) =>
             item._id === action.payload._id
               ? { ...item, quantity: item.quantity + 1 }
               : item
@@ -50,12 +48,12 @@ function cartReducer(state: CartState, action: CartAction): CartState {
     case "REMOVE_FROM_CART":
       return {
         ...state,
-        items: state.items.filter(item => item._id !== action.payload._id),
+        items: state.items.filter((item) => item._id !== action.payload._id),
       };
     case "INCREMENT_QUANTITY":
       return {
         ...state,
-        items: state.items.map(item =>
+        items: state.items.map((item) =>
           item._id === action.payload._id
             ? { ...item, quantity: item.quantity + 1 }
             : item
@@ -64,7 +62,7 @@ function cartReducer(state: CartState, action: CartAction): CartState {
     case "DECREMENT_QUANTITY":
       return {
         ...state,
-        items: state.items.map(item =>
+        items: state.items.map((item) =>
           item._id === action.payload._id && item.quantity > 1
             ? { ...item, quantity: item.quantity - 1 }
             : item
@@ -77,16 +75,14 @@ function cartReducer(state: CartState, action: CartAction): CartState {
   }
 }
 
-// Create Context
 const CartContext = createContext<{
   state: CartState;
   dispatch: React.Dispatch<CartAction>;
-}>( {
+}>({
   state: initialState,
   dispatch: () => null,
 });
 
-// Context Provider Component
 export function CartProvider({ children }: { children: ReactNode }) {
   const [state, dispatch] = useReducer(cartReducer, initialState);
 
@@ -97,7 +93,6 @@ export function CartProvider({ children }: { children: ReactNode }) {
   );
 }
 
-// Custom Hook to Use Cart
 export function useCart() {
   return useContext(CartContext);
 }

@@ -12,7 +12,9 @@ export default function Navbar() {
         <span>Free Shipping On All Orders Over $50</span>
         <span className="hidden md:flex flex-row space-x-5">
           <p>Eng</p>
-          <p>Faqs</p>
+          <Link href={"/faq"}>
+            <p className="hover:text-[#029FAE]">Faqs</p>
+          </Link>
           <p>Need Help</p>
         </span>
       </div>

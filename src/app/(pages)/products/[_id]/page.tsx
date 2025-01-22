@@ -1,12 +1,12 @@
 import React from "react";
-import DetailComp from "@/components/(pages)/DetailComp";
 import { client } from "@/sanity/lib/client";
-import { Product } from "../page"; 
+import { Product } from "@/components/(pages)/type";
 import ProductDetail from "@/components/(pages)/ProductDetail";
+import DetailComp from "@/components/(pages)/DetailComp";
 
 interface Params {
   params: {
-    _id: string; 
+    _id: string;
   };
 }
 
@@ -33,7 +33,7 @@ const SingleProductDetail = async ({ params }: Params) => {
           "imageUrl":image.asset->url
         }
       }`,
-    { id:_id }
+    { id: _id }
   );
 
   if (!product) {
@@ -44,7 +44,7 @@ const SingleProductDetail = async ({ params }: Params) => {
 
   return (
     <div>
-      <ProductDetail product={product}/>
+      <ProductDetail product={product} />
 
       <DetailComp />
     </div>
