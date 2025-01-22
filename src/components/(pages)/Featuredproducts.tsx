@@ -27,7 +27,7 @@ export default async function Featuredproducts() {
         {products.map((product, index) => (
           <div
             key={index}
-            className="bg-white sm:bg-slate-500 w-[280px] sm:w-[312px] h-[377px] overflow-hidden hover:scale-105 hover:z-10 transition-transform duration-150"
+            className="bg-white w-[280px] sm:w-[312px] h-[377px] overflow-hidden hover:scale-105 hover:z-10 transition-transform duration-150"
           >
             <Image
               src={product.imageUrl}
